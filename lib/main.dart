@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:flutter_redux_demo_2/screens/user_details/screen/update_user/update_user_screen.dart';
+import 'package:flutter_redux_demo_2/screens/user_details/screen/user_list/user_list_screen.dart';
 import 'package:flutter_redux_demo_2/screens/user_details/states/app_state.dart';
 import 'constants/dimens.dart';
-import 'screens/user_details/store/form_store.dart';
+import 'screens/user_details/store/user_store.dart';
 import 'package:redux/redux.dart';
 
 void main() async {
@@ -35,7 +35,8 @@ class MyApp extends StatelessWidget {
           highlightColor: Colors.transparent,
           splashColor: Colors.transparent,
         ),
-        home: const UpdateUserScreen(),
+        // home: const UpdateUserScreen(),
+        home: const UserListScreen(),
       ),
     );
   }

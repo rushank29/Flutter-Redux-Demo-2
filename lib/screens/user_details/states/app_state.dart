@@ -1,31 +1,31 @@
-import 'form_data_state.dart';
+import 'user_state.dart';
 
 class AppState {
-  final FormDataState formDataState;
+  final UserState userState;
 
-  AppState({required this.formDataState});
+  AppState({required this.userState});
 
   factory AppState.initial() {
     return AppState(
-      formDataState: FormDataState.initial(),
+      userState: UserState.initial(),
     );
   }
 
   static AppState? fromJson(dynamic json) {
     return json != null
         ? AppState(
-            formDataState: FormDataState.fromJson(json['form_data_state'])!,
+            userState: UserState.fromJson(json['user_state'])!,
           )
         : null;
   }
 
   dynamic toJson() {
     return {
-      'form_data_state': formDataState.toJson(),
+      'user_state': userState.toJson(),
     };
   }
 
-  AppState copyWith(FormDataState formDataState) {
-    return AppState(formDataState: formDataState);
+  AppState copyWith(UserState formDataState) {
+    return AppState(userState: formDataState);
   }
 }

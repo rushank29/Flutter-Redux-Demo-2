@@ -1,21 +1,4 @@
-import 'package:flutter_redux_demo_2/screens/user_details/model/selection_model.dart';
-
 enum Gender { male, female, prefer_not_to_say }
-
-List<SelectionModel> genderList = [
-  SelectionModel(selectedName: 'Male', value: false),
-  SelectionModel(selectedName: 'Female', value: false),
-  SelectionModel(selectedName: 'Prefer not to say', value: false),
-];
-
-List<SelectionModel> languageList = [
-  SelectionModel(selectedName: 'English', value: false),
-  SelectionModel(selectedName: 'Gujarati', value: false),
-  SelectionModel(selectedName: 'Hindi', value: false),
-  SelectionModel(selectedName: 'Arabic', value: false),
-  SelectionModel(selectedName: 'German', value: false),
-  SelectionModel(selectedName: 'French', value: false),
-];
 
 List<String> countryList = <String>[
   "Afghanistan",

@@ -6,7 +6,7 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:flutter/material.dart';
-import 'package:flutter_redux_demo_2/screens/user_details/store/form_store.dart';
+import 'package:flutter_redux_demo_2/screens/user_details/store/user_store.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:flutter_redux_demo_2/main.dart';

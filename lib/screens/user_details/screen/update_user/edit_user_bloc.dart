@@ -5,12 +5,31 @@ import 'package:rxdart/rxdart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux_demo_2/screens/user_details/model/selection_model.dart';
 
+List<SelectionModel> genderList = [
+  SelectionModel(selectedName: 'Male', value: false),
+  SelectionModel(selectedName: 'Female', value: false),
+  SelectionModel(selectedName: 'Prefer not to say', value: false),
+];
+
 class UpdateUserBloc {
   final BuildContext context;
+  final UserDetailsModel userDetailsModel;
 
-  UpdateUserBloc({required this.context}) {
+  UpdateUserBloc({
+    required this.context,
+    required this.userDetailsModel,
+  }) {
     languageSink.add(languageList);
   }
+
+  List<SelectionModel> languageList = [
+    SelectionModel(selectedName: 'English', value: false),
+    SelectionModel(selectedName: 'Gujarati', value: false),
+    SelectionModel(selectedName: 'Hindi', value: false),
+    SelectionModel(selectedName: 'Arabic', value: false),
+    SelectionModel(selectedName: 'German', value: false),
+    SelectionModel(selectedName: 'French', value: false),
+  ];
 
   TextEditingController firstNameController = TextEditingController();
   TextEditingController lastNameController = TextEditingController();
@@ -116,21 +135,15 @@ class UpdateUserBloc {
     _languageSubject.close();
   }
 
-// //  initializing the controller values
-// void getInitializedValue() {
-//   firstNameController = TextEditingController(text: firstName);
-//   lastNameController = TextEditingController(text: lastName);
-//   ageController = TextEditingController(text: age);
-//   contactController = TextEditingController(text: contact);
-//   cityController = TextEditingController(text: city);
-//   country == null ? countryDropdownValue = countryList.first : getSelectedCountry();
-//   language == null ? '' : setInitialSelectedLanguage(selectedLanguage);
-//   if (gender == 'Male') {
-//     selectedGender = genderList[0].selectedName;
-//   } else if (gender == 'Female') {
-//     selectedGender = genderList[1].selectedName;
-//   } else {
-//     selectedGender = genderList[2].selectedName;
-//   }
-// }
+  //  initializing the controller values
+  void getInitializedValue() {
+    firstNameController.text = "${userDetailsModel.firstName}";
+    lastNameController.text = "${userDetailsModel.lastName}";
+    ageController.text = "${userDetailsModel.age}";
+    contactController.text = "${userDetailsModel.contactNo}";
+    "${userDetailsModel.gender}".isNotEmpty ? selectedGender = "${userDetailsModel.gender}" : null;
+    cityController.text = "${userDetailsModel.city}";
+    "${userDetailsModel.country}".isNotEmpty ? getSelectedCountry("${userDetailsModel.country}") : null;
+    setInitialSelectedLanguage("${userDetailsModel.knownLanguages}");
+  }
 }
